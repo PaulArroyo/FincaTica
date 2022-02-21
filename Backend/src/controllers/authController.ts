@@ -1,7 +1,7 @@
 import { request, response } from "express";
 import bcrypt from "bcryptjs";
 
-import { userModel } from "../models/usuario";
+import { usuario } from "../models/usuarioModel";
 import generarJWT from "../helpers/generar-jwt";
 
 export const login = async (req = request, res = response) => {
@@ -9,23 +9,23 @@ export const login = async (req = request, res = response) => {
 
   try {
     // Verificar si el usuario existe
-    const usuario = await userModel.findOne({ correo });
+    const user = await usuario.findOne({ correo });
 
-    if (!usuario) {
+    if (!user) {
       return res.status(404).json({
         msg: "Usuario y / o contraseña incorrectos",
       });
     }
 
     // Verificar si el usuario está activo
-    if (!usuario.estado) {
+    if (!user.estado) {
       return res.status(404).json({
         msg: "Usuario y / o contraseña incorrectos",
       });
     }
 
     // Verificar la contraseña
-    const validPassword = bcrypt.compareSync(password, usuario.password);
+    const validPassword = bcrypt.compareSync(password, user.password);
     if (!validPassword) {
       return res.status(404).json({
         msg: "Usuario y / o contraseña incorrectos",
@@ -33,9 +33,9 @@ export const login = async (req = request, res = response) => {
     }
 
     // Generar JWT
-    const token = await generarJWT(usuario.id);
+    const token = await generarJWT(user.id);
     res.json({
-      usuario,
+      usuario: user,
       token,
     });
   } catch (error) {

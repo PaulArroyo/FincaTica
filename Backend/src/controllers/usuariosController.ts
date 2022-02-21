@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 
-import { userModel } from "../models/usuario";
+import { usuario } from "../models/usuarioModel";
 
 export const getUsuarios = async (req: Request, res: Response) => {
   // TODO: Implementar paginación
   try {
-    const usuarios = await userModel.find({ estado: true });
+    const usuarios = await usuario.find({ estado: true });
 
     res.json({
       usuarios,
@@ -24,10 +24,10 @@ export const getUsuario = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
-    const usuario = await userModel.findById(id);
+    const user = await usuario.findById(id);
 
     res.json({
-      usuario,
+      usuario: user,
     });
   } catch (error) {
     console.log(error);
@@ -39,22 +39,14 @@ export const getUsuario = async (req: Request, res: Response) => {
 
 export const postUsuario = async (req: Request, res: Response) => {
   // Se reciben los argumentos del cuerpo del post
-  const {
-    nombre,
-    apellidoPaterno,
-    apellidoMaterno,
-    user,
-    password,
-    correo,
-    rol,
-  } = req.body;
+  const { nombre, apellidoPaterno, apellidoMaterno, password, correo, rol } =
+    req.body;
 
   // Creación del objeto a insertar en BD
-  const usuario = new userModel({
+  const user = new usuario({
     nombre: nombre.toLowerCase(),
     apellidoPaterno: apellidoPaterno.toLowerCase(),
     apellidoMaterno: apellidoMaterno.toLowerCase(),
-    user,
     password,
     correo: correo.toLowerCase(),
     rol,
@@ -62,14 +54,14 @@ export const postUsuario = async (req: Request, res: Response) => {
 
   // Encriptación de la contraseña
   const salt = bcrypt.genSaltSync();
-  usuario.password = bcrypt.hashSync(password, salt);
+  user.password = bcrypt.hashSync(password, salt);
 
   // Inserción en la BD
   try {
-    await usuario.save();
+    await user.save();
     res.json({
       msg: "Usuario creado exitosamente",
-      usuario,
+      usuario: user,
     });
   } catch (error) {
     console.log(error);

@@ -6,7 +6,6 @@ const usuarioSchema = new mongoose_1.Schema({
     nombre: { type: String, required: true },
     apellidoPaterno: { type: String },
     apellidoMaterno: { type: String },
-    user: { type: String, required: [true, "El usuario es obligatorio"] },
     password: { type: String, required: [true, "La contraseña es obligatoria"] },
     correo: {
         type: String,

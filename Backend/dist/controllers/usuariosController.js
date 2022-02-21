@@ -25,11 +25,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUsuario = exports.putUsuario = exports.postUsuario = exports.getUsuario = exports.getUsuarios = void 0;
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const usuario_1 = require("../models/usuario");
+const usuarioModel_1 = require("../models/usuarioModel");
 const getUsuarios = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // TODO: Implementar paginación
     try {
-        const usuarios = yield usuario_1.userModel.find({ estado: true });
+        const usuarios = yield usuarioModel_1.usuario.find({ estado: true });
         res.json({
             usuarios,
         });
@@ -46,9 +46,9 @@ const getUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     // Obtener el parámetro id de la consulta
     const { id } = req.params;
     try {
-        const usuario = yield usuario_1.userModel.findById(id);
+        const user = yield usuarioModel_1.usuario.findById(id);
         res.json({
-            usuario,
+            usuario: user,
         });
     }
     catch (error) {
@@ -61,26 +61,25 @@ const getUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 exports.getUsuario = getUsuario;
 const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // Se reciben los argumentos del cuerpo del post
-    const { nombre, apellidoPaterno, apellidoMaterno, user, password, correo, rol, } = req.body;
+    const { nombre, apellidoPaterno, apellidoMaterno, password, correo, rol } = req.body;
     // Creación del objeto a insertar en BD
-    const usuario = new usuario_1.userModel({
+    const user = new usuarioModel_1.usuario({
         nombre: nombre.toLowerCase(),
         apellidoPaterno: apellidoPaterno.toLowerCase(),
         apellidoMaterno: apellidoMaterno.toLowerCase(),
-        user,
         password,
         correo: correo.toLowerCase(),
         rol,
     });
     // Encriptación de la contraseña
     const salt = bcryptjs_1.default.genSaltSync();
-    usuario.password = bcryptjs_1.default.hashSync(password, salt);
+    user.password = bcryptjs_1.default.hashSync(password, salt);
     // Inserción en la BD
     try {
-        yield usuario.save();
+        yield user.save();
         res.json({
             msg: "Usuario creado exitosamente",
-            usuario,
+            usuario: user,
         });
     }
     catch (error) {

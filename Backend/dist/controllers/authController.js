@@ -15,35 +15,35 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.login = void 0;
 const express_1 = require("express");
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const usuario_1 = require("../models/usuario");
+const usuarioModel_1 = require("../models/usuarioModel");
 const generar_jwt_1 = __importDefault(require("../helpers/generar-jwt"));
 const login = (req = express_1.request, res = express_1.response) => __awaiter(void 0, void 0, void 0, function* () {
     const { correo, password } = req.body;
     try {
         // Verificar si el usuario existe
-        const usuario = yield usuario_1.userModel.findOne({ correo });
-        if (!usuario) {
+        const user = yield usuarioModel_1.usuario.findOne({ correo });
+        if (!user) {
             return res.status(404).json({
                 msg: "Usuario y / o contraseña incorrectos",
             });
         }
         // Verificar si el usuario está activo
-        if (!usuario.estado) {
+        if (!user.estado) {
             return res.status(404).json({
                 msg: "Usuario y / o contraseña incorrectos",
             });
         }
         // Verificar la contraseña
-        const validPassword = bcryptjs_1.default.compareSync(password, usuario.password);
+        const validPassword = bcryptjs_1.default.compareSync(password, user.password);
         if (!validPassword) {
             return res.status(404).json({
                 msg: "Usuario y / o contraseña incorrectos",
             });
         }
         // Generar JWT
-        const token = yield (0, generar_jwt_1.default)(usuario.id);
+        const token = yield (0, generar_jwt_1.default)(user.id);
         res.json({
-            usuario,
+            usuario: user,
             token,
         });
     }
