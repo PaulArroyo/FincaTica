@@ -21,7 +21,7 @@ export class LoginComponent {
   ) {}
 
   login() {
-    console.log(this.miFormulario.value);
+    // console.log(this.miFormulario.value);
     const { correo, password } = this.miFormulario.value;
 
     this.authService.login(correo, password).subscribe((res) => {

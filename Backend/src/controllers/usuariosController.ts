@@ -75,7 +75,7 @@ export const putUsuario = async (req: Request, res: Response) => {
   const { id } = req.params;
   const { _id, rol, ...data } = req.body;
 
-  // Busqueda de
+  // Busqueda de...
 };
 
 export const deleteUsuario = async (req: Request, res: Response) => {};

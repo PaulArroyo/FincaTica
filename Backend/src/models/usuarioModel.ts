@@ -24,4 +24,10 @@ const usuarioSchema = new Schema<UsuarioInterface>({
   estado: { type: Boolean, default: true },
 });
 
+// Sobrescribo este metodo para controlar lo que quiero devolver como respuesta.
+usuarioSchema.methods.toJSON = function(){
+  const { __v, password, _id, ...usuario} = this.toObject();
+  return usuario;
+}
+
 export const usuario = model<UsuarioInterface>("Usuario", usuarioSchema);

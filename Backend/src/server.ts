@@ -3,6 +3,10 @@ import cors from "cors";
 
 import userRoutes from "./routes/usuariosRoutes";
 import authRoutes from "./routes/authRoutes";
+import numerosRoutes from "./routes/numerosRoutes";
+import coloresRoutes from "./routes/coloresRoutes";
+import animalesRoutes from "./routes/animalesRoutes";
+
 import { dbMongoConnection } from "./database/database";
 
 class Server {
@@ -12,6 +16,9 @@ class Server {
   private apiPaths = {
     usuarios: "/api/usuarios",
     auth: "/api/auth",
+    numeros: "/api/numeros",
+    colores: "/api/colores",
+    animales: "/api/animales",
   };
 
   constructor() {
@@ -43,6 +50,9 @@ class Server {
   routes() {
     this.app.use(this.apiPaths.auth, authRoutes);
     this.app.use(this.apiPaths.usuarios, userRoutes);
+    this.app.use(this.apiPaths.numeros, numerosRoutes);
+    this.app.use(this.apiPaths.colores, coloresRoutes);
+    this.app.use(this.apiPaths.animales, animalesRoutes);
   }
 
   listen() {

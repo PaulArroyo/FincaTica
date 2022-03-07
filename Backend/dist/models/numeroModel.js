@@ -11,24 +11,15 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.usuario = void 0;
+exports.numero = void 0;
 const mongoose_1 = require("mongoose");
-const usuarioSchema = new mongoose_1.Schema({
-    nombre: { type: String, required: true },
-    apellidoPaterno: { type: String },
-    apellidoMaterno: { type: String },
-    password: { type: String, required: [true, "La contraseña es obligatoria"] },
-    correo: {
-        type: String,
-        required: [true, "El correo es obligatorio"],
-        unique: true,
-    },
-    rol: { type: String, required: true, enum: ["ADMIN_ROL", "USER_ROL"] },
+const numeroSchema = new mongoose_1.Schema({
+    num: { type: Number, required: true, unique: true },
     estado: { type: Boolean, default: true },
 });
 // Sobrescribo este metodo para controlar lo que quiero devolver como respuesta.
-usuarioSchema.methods.toJSON = function () {
-    const _a = this.toObject(), { __v, password, _id } = _a, usuario = __rest(_a, ["__v", "password", "_id"]);
-    return usuario;
+numeroSchema.methods.toJSON = function () {
+    const _a = this.toObject(), { __v } = _a, numero = __rest(_a, ["__v"]);
+    return numero;
 };
-exports.usuario = (0, mongoose_1.model)("Usuario", usuarioSchema);
+exports.numero = (0, mongoose_1.model)("Numero", numeroSchema);

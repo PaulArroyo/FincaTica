@@ -16,12 +16,18 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const usuariosRoutes_1 = __importDefault(require("./routes/usuariosRoutes"));
 const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
+const numerosRoutes_1 = __importDefault(require("./routes/numerosRoutes"));
+const coloresRoutes_1 = __importDefault(require("./routes/coloresRoutes"));
+const animalesRoutes_1 = __importDefault(require("./routes/animalesRoutes"));
 const database_1 = require("./database/database");
 class Server {
     constructor() {
         this.apiPaths = {
             usuarios: "/api/usuarios",
             auth: "/api/auth",
+            numeros: "/api/numeros",
+            colores: "/api/colores",
+            animales: "/api/animales",
         };
         this.app = (0, express_1.default)();
         this.port = process.env.PORT || "3000";
@@ -46,6 +52,9 @@ class Server {
     routes() {
         this.app.use(this.apiPaths.auth, authRoutes_1.default);
         this.app.use(this.apiPaths.usuarios, usuariosRoutes_1.default);
+        this.app.use(this.apiPaths.numeros, numerosRoutes_1.default);
+        this.app.use(this.apiPaths.colores, coloresRoutes_1.default);
+        this.app.use(this.apiPaths.animales, animalesRoutes_1.default);
     }
     listen() {
         this.app.listen(this.port, () => {

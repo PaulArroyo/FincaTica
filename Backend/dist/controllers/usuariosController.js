@@ -93,7 +93,7 @@ exports.postUsuario = postUsuario;
 const putUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const _a = req.body, { _id, rol } = _a, data = __rest(_a, ["_id", "rol"]);
-    // Busqueda de
+    // Busqueda de...
 });
 exports.putUsuario = putUsuario;
 const deleteUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () { });
