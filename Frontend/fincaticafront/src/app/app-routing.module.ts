@@ -9,7 +9,22 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
+  {
+    path: 'animales',
+    loadChildren: () =>
       import('./animales/animales.module').then((m) => m.AnimalesModule),
+  },
+  {
+    path: 'colores',
+    loadChildren: () =>
+      import('./colores/colores.module').then((m) => m.ColoresModule),
+  },
+  {
+    path: 'numeros',
+    loadChildren: () =>
+      import('./numeros/numeros.module').then((m) => m.NumerosModule),
   },
   {
     path: '**',

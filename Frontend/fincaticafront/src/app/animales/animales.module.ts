@@ -2,16 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AnimalesRoutingModule } from './animales-routing.module';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-
+import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
-  declarations: [
-    DashboardComponent
-  ],
-  imports: [
-    CommonModule,
-    AnimalesRoutingModule
-  ]
+  declarations: [MainComponent],
+  imports: [CommonModule, AnimalesRoutingModule],
 })
-export class AnimalesModule { }
+export class AnimalesModule {}

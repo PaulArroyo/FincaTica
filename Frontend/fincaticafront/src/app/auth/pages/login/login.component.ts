@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -24,10 +25,19 @@ export class LoginComponent {
     // console.log(this.miFormulario.value);
     const { correo, password } = this.miFormulario.value;
 
-    this.authService.login(correo, password).subscribe((res) => {
-      console.log(res);
+    this.authService.login(correo, password).subscribe((ok) => {
+      if (ok) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Acceso correcto',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        this.router.navigateByUrl('/dashboard');
+      } else {
+        // TODO: Mostrar mensaje de error
+        Swal.fire('Usuario y/o contraseña incorrectos', '', 'error');
+      }
     });
-
-    // this.router.navigateByUrl('/dashboard');
   }
 }

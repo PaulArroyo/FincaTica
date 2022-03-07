@@ -1,0 +1,22 @@
+<h3>Lista de Colores</h3>
+<button type="button" class="btn btn-primary">Nuevo Color</button>
+<br /><br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Color</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let color of colores">
+      <th scope="row">{{ color.nombre }}</th>
+      <td>{{ color.estado }}</td>
+      <td>
+        <button type="button" class="btn btn-success">Editar</button>
+        <button type="button" class="btn btn-danger ml-1">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

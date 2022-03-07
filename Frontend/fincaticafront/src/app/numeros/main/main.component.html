@@ -1,0 +1,22 @@
+<h3>Lista de Numeros</h3>
+<button type="button" class="btn btn-primary">Nuevo Numero</button>
+<br /><br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numero</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let numero of numeros">
+      <th scope="row">{{ numero.num }}</th>
+      <td>{{ numero.estado }}</td>
+      <td>
+        <button type="button" class="btn btn-success">Editar</button>
+        <button type="button" class="btn btn-danger ml-1">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
