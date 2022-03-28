@@ -1,0 +1,28 @@
+<h3>Lista de Usuarios</h3>
+<button type="button" class="btn btn-primary">Nuevo Usuario</button>
+<br /><br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">ApellidoPaterno</th>
+      <th scope="col">ApellidoMaterno</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios">
+      <th scope="row">{{ usuario.nombre }}</th>
+      <td>{{ usuario.apellidoPaterno }}</td>
+      <td>{{ usuario.apellidoMaterno }}</td>
+      <td>{{ usuario.correo }}</td>
+      <td>{{ usuario.rol }}</td>
+      <td>
+        <button type="button" class="btn btn-success">Editar</button>
+        <button type="button" class="btn btn-danger ml-1">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

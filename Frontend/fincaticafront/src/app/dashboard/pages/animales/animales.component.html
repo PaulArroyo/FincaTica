@@ -1,0 +1,32 @@
+<h3>Lista de Animales</h3>
+<button type="button" class="btn btn-primary" (click)="openModal()">Nuevo Animal</button>
+<br /><br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numero</th>
+      <th scope="col">Color</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Fecha_Entrada</th>
+      <th scope="col">Fecha_Salida</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let animal of animales">
+      <th scope="row">{{ animal.numero.num }}</th>
+      <td>{{ animal.color.nombre }}</td>
+      <td>{{ animal.genero }}</td>
+      <td>{{ animal.fecha_entrada }}</td>
+      <td>{{ animal.fecha_salida }}</td>
+      <td>
+        <button type="button" class="btn btn-success">Editar</button>
+        <button type="button" class="btn btn-danger ml-1">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="" *ngIf="modalSwitch == true">
+  <app-modal></app-modal>
+</div>

@@ -1,0 +1,104 @@
+<div
+  class="modal fade show"
+  id="modal-nuevoAnimal"
+  style="display: block; padding-right: 16px"
+  aria-modal="true"
+  role="dialog"
+>
+  <div class="modal-dialog modal-xs">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Ingrese los datos del nuevo animal</h4>
+      </div>
+      <div class="modal-body">
+        <!-- FORMULARIO NUEVO ANIMAL -->
+        <form autocomplete="off" [formGroup]="formularioAgregarAnimal">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="">Número</label>
+              <select
+                class="custom-select form-control-border border-width-2"
+                formControlName="numero"
+              >
+                <!-- TODO: ngFor consultando un servicio que me brinde los numeros -->
+                <option>Value 1</option>
+                <option>Value 2</option>
+                <option>Value 3</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="">Color</label>
+              <select
+                class="custom-select form-control-border border-width-2"
+                formControlName="color"
+              >
+                <!-- TODO: ngFor consultando un servicio que me brinde los colores -->
+                <option>Negro</option>
+                <option>Blanco</option>
+                <option>Rojizo</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="">Genero</label>
+              <select
+                class="custom-select form-control-border border-width-2"
+                formControlName="genero"
+              >
+                <!-- TODO: ngFor consultando un servicio que me brinde los colores -->
+                <option>Macho</option>
+                <option>Hembra</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Fecha de entrada</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="fecha_entrada"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Peso de entrada</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="peso_entrada"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Precio de entrada</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="precio_entrada"
+              />
+            </div>
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button
+          type="button"
+          class="btn btn-default"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>

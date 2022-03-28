@@ -34,8 +34,8 @@ export class LoginComponent {
           timer: 1500,
         });
         this.router.navigateByUrl('/dashboard');
+        // this.router.navigateByUrl('/dashboard', {skipLocationChange: true}).then(()=> this.router.navigateByUrl('/dashboard'));
       } else {
-        // TODO: Mostrar mensaje de error
         Swal.fire('Usuario y/o contraseña incorrectos', '', 'error');
       }
     });
