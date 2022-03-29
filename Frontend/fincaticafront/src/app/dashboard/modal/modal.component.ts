@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { NumerosService } from 'src/app/numeros/services/numeros.service';
+import { DashboardService } from '../services/dashboard.service';
 import { ModalService } from './modal.service';
 
 @Component({
@@ -8,14 +15,14 @@ import { ModalService } from './modal.service';
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent implements OnInit {
-  // formularioAgregarAnimal: FormGroup = new FormGroup({
-  //   numero: new FormControl(20),
-  // });
-
-  constructor(private modalService: ModalService, private fb: FormBuilder) {}
+  constructor(
+    private modalService: ModalService,
+    private fb: FormBuilder,
+    private numerosService: NumerosService
+  ) {}
 
   formularioAgregarAnimal: FormGroup = this.fb.group({
-    numero: [''],
+    numero: ['', Validators.required],
     color: [''],
     genero: [''],
     fecha_entrada: [''],
@@ -23,7 +30,16 @@ export class ModalComponent implements OnInit {
     precio_entrada: [0],
   });
 
-  ngOnInit(): void {}
+  // Llenar selectores
+  numeros: any;
+
+  ngOnInit(): void {
+    this.numeros = this.numerosService.consultarNumeros().subscribe((data) => {
+      this.numeros = data;
+    });
+  }
+
+  guardar() {}
 
   closeModal() {
     this.modalService.$modal.emit(false);

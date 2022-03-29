@@ -12,7 +12,11 @@
       </div>
       <div class="modal-body">
         <!-- FORMULARIO NUEVO ANIMAL -->
-        <form autocomplete="off" [formGroup]="formularioAgregarAnimal">
+        <form
+          autocomplete="off"
+          [formGroup]="formularioAgregarAnimal"
+          (ngSubmit)="guardar()"
+        >
           <div class="card-body">
             <div class="form-group">
               <label for="">Número</label>
@@ -21,9 +25,10 @@
                 formControlName="numero"
               >
                 <!-- TODO: ngFor consultando un servicio que me brinde los numeros -->
-                <option>Value 1</option>
-                <option>Value 2</option>
-                <option>Value 3</option>
+                <option>-- Seleccione un número --</option>
+                <option *ngFor="let numero of numeros" [value]="numero">
+                  {{ numero.num }}
+                </option>
               </select>
             </div>
 
@@ -34,6 +39,7 @@
                 formControlName="color"
               >
                 <!-- TODO: ngFor consultando un servicio que me brinde los colores -->
+                <option value="">-- Seleccione un color --</option>
                 <option>Negro</option>
                 <option>Blanco</option>
                 <option>Rojizo</option>
@@ -82,7 +88,7 @@
           <!-- /.card-body -->
 
           <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
           </div>
         </form>
       </div>

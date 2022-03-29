@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AnimalesService {
   constructor(private http: HttpClient) {}
-  private baseUrl: string = environment.baseUrl;
+  private baseUrl: string = environment.herokuUrl;
 
   consultarAnimales() {
     const url = `${this.baseUrl}/animales`;

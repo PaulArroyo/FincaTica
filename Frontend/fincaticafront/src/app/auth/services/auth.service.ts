@@ -9,7 +9,7 @@ import { AuthResponse } from '../interfaces/interfaces';
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-  private baseUrl: string = environment.baseUrl;
+  private baseUrl: string = environment.herokuUrl;
 
   login(correo: string, password: string) {
     const url = `${this.baseUrl}/auth`;

@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:3000/api',
+  herokuUrl: 'https://fincatica-backend.herokuapp.com/api',
 };
 
 /*

@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class NumerosService {
   constructor(private http: HttpClient) {}
-  private baseUrl: string = environment.baseUrl;
+  private baseUrl: string = environment.herokuUrl;
 
   consultarNumeros() {
     const url = `${this.baseUrl}/numeros`;
