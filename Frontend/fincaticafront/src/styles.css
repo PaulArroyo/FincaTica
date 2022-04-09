@@ -1,0 +1,83 @@
+.table{
+    border-radius: 50px;
+}
+
+.table-success{
+    background-color: #28aa3e;
+}
+
+.table-bordered{
+    background-color: #ffffff;
+}
+
+.login-page{
+    background-image: url(dist/fincaticafront/assets/dist/img/VacaBG.jpg);
+    background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	flex-direction: column;
+	align-items: center;
+}
+
+.loginFincaTica{
+    width: 30%;
+	padding: 65px 20px;
+	background: #fff;
+	position: absolute;
+    border: solid;
+	border-radius: 20px;
+    border-color: #28aa3e;
+    border-width: 3px;
+}
+
+.TitleFincaTica{
+	text-align: center;
+	margin-bottom: 20px;
+	color: #28aa3e;
+}
+
+.form_login input{
+    width: 100%;
+	padding: 10px;
+	border: none;
+	background: #f2f2f2;
+	font-size: 16px;
+	outline: none;
+	border-radius: 15px;
+}
+
+.BotonIni{
+    padding: 10px 40px;
+	border: 3px solid #28aa3e;
+	background: transparent;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	outline: none;
+	transition: all 300ms;
+	border-radius: 20px;
+}
+
+.BotonIni:hover{
+    background-color: #28aa3e;
+    color: #fff;
+}
+
+.BotonGuar{
+    padding: 10px 40px;
+	border: 3px solid white;
+    color: white;
+	background: transparent;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	outline: none;
+	transition: all 300ms;
+	border-radius: 20px;
+}
+
+.BotonGuar:hover{
+    background-color: #fff;
+    color: #28aa3e;
+}

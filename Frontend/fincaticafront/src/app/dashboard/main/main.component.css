@@ -1,0 +1,54 @@
+:root{
+    --green: #7EF30F;
+    --white: #fff;
+    --white2: #f5f5f5;
+    --black1: #222;
+    --grey: #999;
+
+}
+
+.sidebar{
+    background: var(--green);
+}
+
+.nav-item{
+    cursor: pointer;
+}
+
+.main-sidebar{
+    background: var(--green);
+}
+
+p{
+    color: var(--white);
+}
+
+.nav-icon{
+    color: var(--white);
+}
+
+.info{
+    font-style: var(--white);  
+}
+.span{
+    color: var(--white);
+}
+
+.a{
+    color: var(--white)
+}
+
+.brand-link{
+    border-color: var(--white);
+}
+
+.user-panel{
+    border-color: var(--white);
+}
+
+.login-box{
+    background-color: var(--green);
+}
+
+
+

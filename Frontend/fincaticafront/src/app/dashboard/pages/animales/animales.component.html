@@ -1,7 +1,7 @@
 <h3>Lista de Animales</h3>
-<button type="button" class="btn btn-primary" (click)="openModal()">Nuevo Animal</button>
+<button type="button" class="btn btn-success" (click)="openModal()">Nuevo Animal</button>
 <br /><br />
-<table class="table">
+<table class="table table-bordered table-success">
   <thead>
     <tr>
       <th scope="col">Numero</th>
@@ -20,8 +20,8 @@
       <td>{{ animal.fecha_entrada }}</td>
       <td>{{ animal.fecha_salida }}</td>
       <td>
-        <button type="button" class="btn btn-success">Editar</button>
-        <button type="button" class="btn btn-danger ml-1">Eliminar</button>
+        <button type="button" class="btn btn-outline-success">Editar</button>
+        <button type="button" class="btn btn-outline-danger ml-1">Eliminar</button>
       </td>
     </tr>
   </tbody>

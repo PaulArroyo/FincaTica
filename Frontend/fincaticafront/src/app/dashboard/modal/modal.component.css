@@ -1,0 +1,37 @@
+:root{
+    --green: #68DA25;
+    --white: #fff;
+    --white2: #f5f5f5;
+    --black1: #222;
+    --grey: #999;
+
+}
+
+.modal-content{
+    border-color: var(--white);
+    border-width: 2px;
+    background-color: var(--green);
+    border-radius: 20px;
+}
+
+.modal-title{
+    color: var(--white);
+}
+
+label{
+    color: var(--white);
+}
+
+select{
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+input{
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.card-footer{
+    background-color: var(--green);
+}

@@ -21,7 +21,7 @@
             <div class="form-group">
               <label for="">Número</label>
               <select
-                class="custom-select form-control-border border-width-2"
+                class="custom-select form-control-border border-width-2 rounded-pill"
                 formControlName="numero"
               >
                 <!-- TODO: ngFor consultando un servicio que me brinde los numeros -->
@@ -35,7 +35,7 @@
             <div class="form-group">
               <label for="">Color</label>
               <select
-                class="custom-select form-control-border border-width-2"
+                class="custom-select form-control-border border-width-2 rounded-pill"
                 formControlName="color"
               >
                 <!-- TODO: ngFor consultando un servicio que me brinde los colores -->
@@ -49,7 +49,7 @@
             <div class="form-group">
               <label for="">Genero</label>
               <select
-                class="custom-select form-control-border border-width-2"
+                class="custom-select form-control-border border-width-2 rounded-pill"
                 formControlName="genero"
               >
                 <!-- TODO: ngFor consultando un servicio que me brinde los colores -->
@@ -88,20 +88,20 @@
           <!-- /.card-body -->
 
           <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="BotonGuar">Guardar</button>
           </div>
         </form>
       </div>
       <div class="modal-footer justify-content-between">
         <button
           type="button"
-          class="btn btn-default"
+          class="BotonGuar"
           data-dismiss="modal"
           (click)="closeModal()"
         >
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="BotonGuar">Guardar</button>
       </div>
     </div>
     <!-- /.modal-content -->
